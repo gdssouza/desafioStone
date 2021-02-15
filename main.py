@@ -9,6 +9,26 @@ def validaListas(lista_compras, lista_emails):
         return True, ''
 
 def desafio(lista_compras, lista_emails):
+    '''
+    
+
+    Parameters
+    ----------
+    lista_compras : list
+        Matriz 3xN. Descrição das linhas:
+            [0] Itens : str
+            [1] Quantidade de cada item : int
+            [2] Preço por unidade/peso/pacote de cada item em reais : int
+    lista_emails : list
+        Lista com emails (str).
+
+    Returns
+    -------
+    dict
+        Chaves : e-mail
+        Valores : valor
+        
+    '''
     result, msg = validaListas(lista_compras, lista_emails)
     if result == False:
         return msg
