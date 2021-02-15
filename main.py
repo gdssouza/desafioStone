@@ -3,8 +3,10 @@ def validaListas(lista_compras, lista_emails):
         return False, 'A lista de compras está vazia.'
     elif lista_emails == []:
         return False, 'A lista de emails está vazia.'
-    elif len(lista_compras) != len(lista_emails):
-        return False, 'As listas não possuem o mesmo tamanho'
+    elif len(lista_compras) != 3:
+        return False, 'A lista de compras não é 3xN'
+    elif not( len(lista_compras[0]) == len(lista_compras[1]) == len(lista_compras[2])):
+        return False, 'A lista de compras não é uma matriz'
     else:
         return True, ''
 
@@ -57,6 +59,11 @@ def desafio(lista_compras, lista_emails):
         valor_total = retornaSoma(lista_compras)
         return fazDivisao(valor_total, lista_emails)
 
+# testando código
+print(desafio([],[]))
+print(desafio([[1],[1]],['a']))
+print(desafio([[1],[1],[1,2]],['a']))
+print(desafio([[1],[1],[1,2]],[]))
 lista_compras = [ ['item']*100, [1]*100,[1]*100]
 lista_emails = ['email1','email2','email3']
 print(desafio(lista_compras, lista_emails))
