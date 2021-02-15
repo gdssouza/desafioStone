@@ -15,6 +15,20 @@ def retornaSoma(lista_compras):
         soma += qtds[i]*precos[i]
     return soma
         
+def fazDivisao(soma, lista_emails):
+    mapa = {}
+    len_emails = len(lista_emails)
+    soma_cents = soma*100
+    divisao_cents = int(soma_cents/len_emails)
+    
+    for email in lista_emails:
+        mapa[email] = divisao_cents
+        
+    if (len_emails%2 != 0) and (len_emails > 2):
+        mapa[lista_emails[-1]] += soma_cents - divisao_cents*len_emails
+        
+    return mapa
+        
 def desafio(lista_compras, lista_emails):
     '''
     
@@ -40,9 +54,9 @@ def desafio(lista_compras, lista_emails):
     if result == False:
         return msg
     else:
-        return {}
+        valor_total = retornaSoma(lista_compras)
+        return fazDivisao(valor_total, lista_emails)
 
-print(desafio([],[1]))
-print(desafio([1],[]))
-print(desafio([],[]))
-print(desafio([0],[1,2]))
+lista_compras = [ ['item']*100, [1]*100,[1]*100]
+lista_emails = ['email1','email2','email3']
+print(desafio(lista_compras, lista_emails))
