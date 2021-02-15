@@ -1,24 +1,41 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb 15 15:10:45 2021
+Created on Mon Feb 15
 
 @author: Gustavo
 """
 
 from __init__ import Desafio
 
-lista_compras = [[], [], [] ]
-lista_emails = ['nome@email.com', 'maria@email.com', 'joao@email.com']
+#caminhoCompras = input("Insira o caminho do dataset com as compras: ")
+#caminhoEmails = input("Insira o caminho do dataset com os emails: ")
 
-dados = open('dataset_exemplo.csv', 'r')
-for linha in dados:
-    item, qtd, preco = linha.strip().split(',')
+caminhoCompras = 'dados/datasetCompras_exemplo.csv'
+caminhoEmails = 'dados/datasetEmails_exemplo.csv'
+
+lista_compras = [[], [], [] ]
+print("-- Lendo dataset com as compras --")
+dadosCompras = open(caminhoCompras, 'r')
+for linha in dadosCompras:
+    linha = linha.strip()
+    item, qtd, preco = linha.split(',')
     qtd, preco = int(qtd), float(preco)
     lista_compras[0].append(item)
     lista_compras[1].append(qtd)
     lista_compras[2].append(preco)
-dados.close()
+    print(linha)
+dadosCompras.close()
+
+lista_emails = []
+print("\n-- Lendo dataset com os emails --")
+dadosEmails = open(caminhoEmails, 'r')
+for linha in dadosEmails:
+    email = linha.strip()
+    lista_emails.append(email)
+    print(email)
+dadosEmails.close()
     
+print("\n-- Resultados --")
 API = Desafio(lista_compras, lista_emails)
 resultado = API.retornaMapa()
 for chave in resultado:
