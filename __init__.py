@@ -50,8 +50,8 @@ class Desafio:
         result, msg = validaListas(lista_compras, lista_emails)
         if result == False:
             raise ValueError(msg)
-        self.lista_compras_ = lista_compras
-        self.lista_emails_ = lista_emails
+        self.listaCompras_ = lista_compras
+        self.listaEmails_ = lista_emails
         
     def retornaMapa(self):
         '''
@@ -69,8 +69,3 @@ class Desafio:
     
     def get_valorTotal(self):
         return self.valorTotal_
-
-# testando código
-lista_compras = [ ['item']*100, [1]*100,[1]*100]
-lista_emails = ['email1','email2','email3']
-Desafio(lista_compras, lista_emails)
