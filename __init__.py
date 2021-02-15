@@ -7,18 +7,18 @@ Created on Mon Feb 15
 
 # Validação dos dados
 def validaListas(lista_compras, lista_emails):
+    itens, qtds, precos = lista_compras
     if lista_compras == []:
         return False, 'A lista de compras está vazia.'
     elif lista_emails == []:
         return False, 'A lista de emails está vazia.'
     elif len(lista_compras) != 3:
         return False, 'A lista de compras não é 3xN'
-    elif not( len(lista_compras[0]) == len(lista_compras[1]) == len(lista_compras[2])):
+    elif not( len(itens) == len(qtds) == len(precos)):
         return False, 'A lista de compras não é uma matriz'
     
     # Percorrendo cada elemento e verificando se há algum elemento com o tipo
     # de dado inválido
-    itens, qtds, precos = lista_compras    
     for tipo in list(map(type, precos)):
         if tipo != float and tipo != int:
             return False, 'A lista de compras possui preços que não são números'
