@@ -1,4 +1,4 @@
-# função de validação dos dados\
+# função de validação dos dados
 def validaListas(lista_compras, lista_emails):
     if lista_compras == []:
         return False, 'A lista de compras está vazia.'
@@ -9,8 +9,8 @@ def validaListas(lista_compras, lista_emails):
     elif not( len(lista_compras[0]) == len(lista_compras[1]) == len(lista_compras[2])):
         return False, 'A lista de compras não é uma matriz'
     
-    # percorrendo cada elemento e verificando se há algum elemento no qual o tipo
-    # de dado é diferente do determinado pelo enunciado
+    # percorrendo cada elemento e verificando se há algum elemento com o tipo
+    # de dado inválido
     itens, qtds, precos = lista_compras    
     for tipo in list(map(type, precos)):
         if tipo != float and tipo != int:
@@ -33,15 +33,19 @@ def retornaSoma(lista_compras):
         
 def fazDivisao(soma, lista_emails):
     mapa = {}
-    len_emails = len(lista_emails)
+    sizeEmails = len(lista_emails)
     soma_cents = soma*100
-    divisao_cents = int(soma_cents/len_emails)
+    divisao_cents = int(soma_cents/sizeEmails)
+    restoDivisao_cents = soma_cents%sizeEmails
     
-    for email in lista_emails:
+    # percorrendo a lista de emails e definindo os valores de pagamento
+    # percorrendo do fim para o começo, dessa forma, os últimos ficam com a
+    # diferença do resto de divisão
+    for email in lista_emails[::-1]:
         mapa[email] = divisao_cents
-    
-    if (len_emails%2 != 0) and (len_emails > 2):
-        mapa[lista_emails[-1]] += soma_cents - divisao_cents*len_emails
+        if restoDivisao_cents >= 1:
+            mapa[email] += 1
+            restoDivisao_cents -= 1
         
     return mapa
         
