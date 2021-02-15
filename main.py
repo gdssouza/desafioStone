@@ -8,6 +8,13 @@ def validaListas(lista_compras, lista_emails):
     else:
         return True, ''
 
+def retornaSoma(lista_compras):
+    itens, qtds, precos = lista_compras
+    soma = 0
+    for i in range(0, len(itens)):
+        soma += qtds[i]*precos[i]
+    return soma
+        
 def desafio(lista_compras, lista_emails):
     '''
     
