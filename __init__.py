@@ -31,7 +31,7 @@ def fazDivisao(soma, lista_emails):
         
     return mapa
         
-def desafio(lista_compras, lista_emails):
+class Desafio:
     '''
     
 
@@ -45,25 +45,32 @@ def desafio(lista_compras, lista_emails):
     lista_emails : list
         Lista com emails (str).
 
-    Returns
-    -------
-    dict
-        Chaves : e-mail
-        Valores : valor a pagar
-        
     '''
-    result, msg = validaListas(lista_compras, lista_emails)
-    if result == False:
-        return msg
-    else:
-        valor_total = retornaSoma(lista_compras)
-        return fazDivisao(valor_total, lista_emails)
+    def __init__(self, lista_compras, lista_emails):
+        result, msg = validaListas(lista_compras, lista_emails)
+        if result == False:
+            raise ValueError(msg)
+        self.lista_compras_ = lista_compras
+        self.lista_emails_ = lista_emails
+        
+    def retornaMapa(self):
+        '''
+        
+
+        Returns
+        -------
+        dict
+            Chaves : e-mail
+            Valores : valor a pagar
+
+        '''
+        self.valorTotal_ = retornaSoma(self.listaCompras_)
+        return fazDivisao(self.valorTotal_, self.listaEmails_)
+    
+    def get_valorTotal(self):
+        return self.valorTotal_
 
 # testando código
-print(desafio([],[]))
-print(desafio([[1],[1]],['a']))
-print(desafio([[1],[1],[1,2]],['a']))
-print(desafio([[1],[1],[1,2]],[]))
 lista_compras = [ ['item']*100, [1]*100,[1]*100]
 lista_emails = ['email1','email2','email3']
-print(desafio(lista_compras, lista_emails))
+Desafio(lista_compras, lista_emails)
