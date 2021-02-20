@@ -5,20 +5,38 @@ Enunciado do teste: [README.md](https://gist.github.com/programa-elixir/1bd50a6d
 
 ### Explicando o código
 
-O repositório possui uma classe nomeada Desafio que requer dois argumentos:
+O repositório possui um módulo chamado pagamentos, dentro há uma função nomeada desafio que requer dois argumentos:
 
 * Lista de compras: Uma matriz 3xN com os itens (string), quantidade de cada item (inteiro) e preço por unidade item (float ou inteiro).
 * Lista de emails: onde cada email é uma string
 
-A classe faz uso de 3 funções auxiliares:
+A função faz uso de outras 3 funções auxiliares:
 
 * Uma para validação, composta por condicionais que garatem a estrutura dos dados.
 * Uma para encontrar o valor total, para isso, foi utilizado um laço de repetição que percorre todos os dados.
-* Uma para realizar a divisão, essa é o cerne do problema. Para isso, é obtido o inteiro da divisão e o resto da divisão, que por definição matemática também SEMPRE é um inteiro e NUNCA maior ou igual que o quociente. Sendo assim, o programa percorre os emails distribuindo os valores de pagamento somados com o resto de divisão limitado a 1 centavo. Esse limite é necessário para garantir a distribuição mais próxima possível do igualitário.
+* Uma para realizar a divisão, essa é o cerne do problema. Para isso, é obtido o inteiro da divisão e o resto da divisão, que por definição matemática também SEMPRE é um inteiro e NUNCA maior ou igual que o quociente. Sendo assim, o programa percorre os emails distribuindo os valores de pagamento somados com o resto de divisão limitado a 1 centavo. Esse limite é necessário para garantir a distribuição mais próxima possível do igualitário. Não há prejuízo.
 
-A classe possui uma função chamada retornaMapa que retorna um dicionário onde a chave será o e-mail e o valor será quanto ele deve pagar nessa conta, ou seja, é a função que responde o teste técnico.
+A função desafio retorna um dicionário que é a resposta do teste técnico.
 
-### Arquivos
+### Teste
 
-O código está no arquivo \_\_init\_\_.py. O arquivo teste.py é a forma que eu encontrei para testar o código, para isso, é necessário um dataset com as compras e um dataset com os emails. \
-Para facilitar o teste, criei um exemplo na pasta dados. O caminho do exemplo já está no teste.py, ou seja, é só rodar o programa :)
+Para testar o programa é necessário dois datasets em .csv:
+
+* Lista de compras. Colunas na seguinte ordem: item, quantidade e preço
+* Lista de emails. Uma única coluna com os emails.
+
+```python
+
+python teste.py <caminho lista de compras> <caminho lista de emails>
+```
+
+Para simplificar a sua vida, há na pasta dados um exemplo bem simples. Para testar utilize:
+
+```python
+python teste.py dados/datasetCompras_exemplo.csv dados/datasetEmails_exemplo.csv
+```
+
+### Agradecimentos
+
+
+Agradeço à Stone pela oportunidade de participar deste desafio. Se você, assim como eu, também quer transformar potencial em potência, acesse [Jornada Stone](https://jornada.stone.com.br/).
