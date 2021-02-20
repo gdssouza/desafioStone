@@ -8,7 +8,11 @@ Created on Mon Feb 15
 # Validação dos dados
 def validaListas(listaCompras, listaEmails):
     itens, qtds, precos = listaCompras
-    if listaCompras == []:
+    if type(listaCompras) != list:
+        return False, 'listaCompras não é uma lista.'
+    elif type(listaEmails) != list:
+        return False, 'listaEmails não é uma lista.'
+    elif listaCompras == []:
         return False, 'A lista de compras está vazia.'
     elif listaEmails == []:
         return False, 'A lista de emails está vazia.'
@@ -16,7 +20,7 @@ def validaListas(listaCompras, listaEmails):
         return False, 'A lista de compras não é 3xN'
     elif not( len(itens) == len(qtds) == len(precos)):
         return False, 'A lista de compras não é uma matriz'
-    
+
     # Percorrendo cada elemento e verificando se há algum elemento com o tipo
     # de dado inválido
     for tipo in list(map(type, precos)):
@@ -26,7 +30,7 @@ def validaListas(listaCompras, listaEmails):
         return False, 'A lista de compras possui pelo menos um produto com quantidade não inteira.'
     elif list(map(type, listaEmails)) != [str]*len(listaEmails):
         return False, 'A lista de emails não é completamente composta por strings'
-    
+        
     # Se tudo estiver ok, retorna True sem mensagem de erro
     return True, ''
 
