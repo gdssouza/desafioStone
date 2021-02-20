@@ -5,7 +5,7 @@ Created on Mon Feb 15
 @author: Gustavo
 """
 
-from __init__ import Desafio
+import pagamentos
 
 #caminhoCompras = input("Insira o caminho do dataset com as compras: ")
 #caminhoEmails = input("Insira o caminho do dataset com os emails: ")
@@ -36,7 +36,6 @@ for linha in dadosEmails:
 dadosEmails.close()
     
 print("\n-- Resultados --")
-API = Desafio(lista_compras, lista_emails)
-resultado = API.retornaMapa()
+resultado = pagamentos.desafio(lista_compras, lista_emails)
 for chave in resultado:
     print(chave,'pagará', resultado[chave], 'centavos')
