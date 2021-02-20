@@ -20,7 +20,6 @@ def validaListas(listaCompras, listaEmails):
         return False, 'A lista de compras não é 3xN'
     elif not( len(itens) == len(qtds) == len(precos)):
         return False, 'A lista de compras não é uma matriz'
-
     # Percorrendo cada elemento e verificando se há algum elemento com o tipo
     # de dado inválido
     for tipo in list(map(type, precos)):
@@ -30,7 +29,6 @@ def validaListas(listaCompras, listaEmails):
         return False, 'A lista de compras possui pelo menos um produto com quantidade não inteira.'
     elif list(map(type, listaEmails)) != [str]*len(listaEmails):
         return False, 'A lista de emails não é completamente composta por strings'
-        
     # Se tudo estiver ok, retorna True sem mensagem de erro
     return True, ''
 
@@ -44,15 +42,15 @@ def retornaSoma(listaCompras):
         
 # Percorrendo a lista de emails e definindo os valores de pagamento
 def fazMapa(soma, listaEmails):
-    mapa = {}
     sizeEmails = len(listaEmails)
     soma_cents = soma*100
-    divisao_cents = int(soma_cents/sizeEmails)
+    divisao_cents = soma_cents//sizeEmails
     restoDivisao_cents = soma_cents%sizeEmails
     
+    mapa = {}
     for email in listaEmails[::-1]:
         mapa[email] = divisao_cents
-        if restoDivisao_cents >= 1:
+        if restoDivisao_cents > 0:
             mapa[email] += 1
             restoDivisao_cents -= 1        
     return mapa
@@ -79,6 +77,6 @@ def desafio(listaCompras, listaEmails):
     if result == False:
         raise ValueError(msg)
     else:
-        valorTotal_ = retornaSoma(listaCompras)
-        mapa = fazMapa(valorTotal_, listaEmails)
+        valorTotal = retornaSoma(listaCompras)
+        mapa = fazMapa(valorTotal, listaEmails)
         return mapa
