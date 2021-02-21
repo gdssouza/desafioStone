@@ -3,6 +3,8 @@ Autor: Souza, Gustavo.
 
 Enunciado do teste: [README.md](https://gist.github.com/programa-elixir/1bd50a6d97909f2daa5809c7bb5b9a8a)
 
+Minha outra solução, dessa vez utilizando Elixir: [Repositório](https://github.com/gdssouza/aprendendo_Elixir/blob/main/desafioStone.exs)
+
 ### Explicando o código
 
 O repositório possui um módulo chamado pagamentos, dentro há uma função nomeada desafio que requer dois argumentos:
