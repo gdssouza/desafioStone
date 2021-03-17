@@ -41,4 +41,4 @@ python teste.py dados/datasetCompras_exemplo dados/datasetEmails_exemplo
 ### Agradecimentos
 
 
-Agradeço à Stone pela oportunidade de participar deste desafio. Se você, assim como eu, também quer transformar potencial em potência, acesse [Jornada Stone](https://jornada.stone.com.br/).
+Agradeço à Stone pela oportunidade de participar deste desafio. Acesse [Jornada Stone](https://jornada.stone.com.br/).
