@@ -21,13 +21,11 @@ def testar(caminhoCompras, caminhoEmails):
     with open(caminhoEmails, 'r') as dadosEmails:
         for email in dadosEmails:
             lista_emails.append(email.strip())
-            #print(email)
         
-    resultado = pagamentos.desafio(lista_compras, lista_emails)
-    print(resultado)
+    return pagamentos.desafio(lista_compras, lista_emails)
 
 if __name__ == '__main__':
     import sys
-    caminho_compras = sys.argv[1]   # exemplo <- dados/datasetCompras_exemplo.csv
-    caminho_emails = sys.argv[2]    # exemplo <- dados/datasetEmails_exemplo.csv
-    testar(caminho_compras, caminho_emails)
+    caminho_compras = sys.argv[1]   # exemplo <- dados/datasetCompras_exemplo
+    caminho_emails = sys.argv[2]    # exemplo <- dados/datasetEmails_exemplo
+    print(testar(caminho_compras, caminho_emails))

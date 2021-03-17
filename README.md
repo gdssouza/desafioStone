@@ -22,7 +22,7 @@ A função desafio retorna um dicionário que é a resposta do teste técnico.
 
 ### Teste
 
-Para testar o programa é necessário dois datasets em .csv:
+Para testar o programa é necessário dois datasets:
 
 * Lista de compras. Colunas na seguinte ordem: item, quantidade e preço
 * Lista de emails. Uma única coluna com os emails.
@@ -35,7 +35,7 @@ python teste.py <caminho lista de compras> <caminho lista de emails>
 Para simplificar a sua vida, há na pasta dados um exemplo bem simples. Para testar utilize:
 
 ```python
-python teste.py dados/datasetCompras_exemplo.csv dados/datasetEmails_exemplo.csv
+python teste.py dados/datasetCompras_exemplo dados/datasetEmails_exemplo
 ```
 
 ### Agradecimentos
